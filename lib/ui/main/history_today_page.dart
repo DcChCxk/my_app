@@ -7,6 +7,8 @@ import 'package:my_app/base/utils/route_util.dart';
 import 'package:my_app/bean/history_today_list_bean_entity.dart';
 import 'package:my_app/ui/main/history_detail_page.dart';
 
+
+///历史上的今天列表
 class HistoryTodayPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => HistoryTodayPageState();
@@ -67,12 +69,12 @@ class HistoryTodayPageState extends State<HistoryTodayPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(
-                      width:MediaQuery.of(context).size.width*4/5-64,
+                      width:MediaQuery.of(context).size.width*4/5-60,
                       child: Text(history[index].title,overflow: TextOverflow.ellipsis,maxLines: 1,
                         style: TextStyle(color:Colors.black,fontSize: MyDimens.getSp(16),fontWeight: FontWeight.w500),),
                     ),
                     SizedBox(
-                      width:MediaQuery.of(context).size.width/5,
+                      width:MediaQuery.of(context).size.width/5+10,
                       child: Text(history[index].year +" / " +
                           history[index].month.toString() + " / " +
                           history[index].day.toString()),
@@ -80,7 +82,7 @@ class HistoryTodayPageState extends State<HistoryTodayPage> {
                   ],
                 ),
                 Text(history[index].details ?? '',overflow: TextOverflow.ellipsis,maxLines: 2,
-                  style: MyStyle.text_style_14_119,),
+                  style: TextStyle(fontSize: 14,color: Colors.grey,height: 1.5)),
               ],
             ),
           ),

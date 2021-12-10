@@ -89,6 +89,6 @@ class MyStyle{
 
   static  TextStyle text_style_24_255 = TextStyle(fontSize: MyDimens.getSp(24), color: Color.fromRGBO(255, 255, 255, 1));
   static  TextStyle text_style_24_51 = TextStyle(fontSize: MyDimens.getSp(24), color: Color.fromRGBO(51, 51, 51, 1));
-
+  static  TextStyle text_style_24_51_bold = TextStyle(fontSize: MyDimens.getSp(24), color: Color.fromRGBO(51, 51, 51, 1),fontWeight: FontWeight.bold);
 
 }

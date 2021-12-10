@@ -16,12 +16,12 @@ class HomePage extends StatefulWidget{
 class HomePageState extends State<HomePage>{
   final List<BottomNavigationBarItem> _bottomItem = [
     const BottomNavigationBarItem(
-      icon: Text('1'),
-      label:'第一个'
+      icon: Icon(Icons.list),
+      label:'首页'
     ),
     const BottomNavigationBarItem(
-        icon: Text('2'),
-        label:'第二个'
+        icon: Icon(Icons.person),
+        label:'我的'
     ),
   ];
 
@@ -47,7 +47,7 @@ class HomePageState extends State<HomePage>{
                   currentPage = _tabs[widget.currentIndex];
                 });
               },
-              fixedColor: Colors.red,
+              fixedColor: Colors.green,
             ),
             body: currentPage));
   }

@@ -5,6 +5,7 @@ import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/ui/get_word.dart';
 import 'package:dio/dio.dart';
 
+///天气查询
 class WeatherQueryPage extends StatefulWidget{
 
   @override
@@ -41,29 +42,37 @@ class WeatherQueryPageState extends State<WeatherQueryPage>{
             width: MediaQuery.of(context).size.width,
             child: Image.asset('assets/main/weather_query.jpg'),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width-100,
-                child: TextFormField(
-                  controller: _controller,
-                  focusNode: _node,
-                  decoration: const InputDecoration(
-                    labelText: '请输入要查询的城市',
-                    labelStyle: TextStyle(
-                        fontSize: 15.0,
-                        color: Color.fromARGB(255, 93, 93, 93)),
-                    border: InputBorder.none,
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10,horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 5),
+            decoration: BoxDecoration(
+              border: Border.all(),
+              borderRadius: BorderRadius.all(Radius.circular(10))
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width-120,
+                  child: TextFormField(
+                    controller: _controller,
+                    focusNode: _node,
+                    decoration: const InputDecoration(
+                      labelText: '请输入要查询的城市',
+                      labelStyle: TextStyle(
+                          fontSize: 15.0,
+                          color: Color.fromARGB(255, 93, 93, 93)),
+                      border: InputBorder.none,
+                    ),
                   ),
                 ),
-              ),
-              TextButton(onPressed: (){
-                _node.unfocus();
-                add=_controller.text;
-                _getHttp();
-              }, child: const Text('查询')),
-            ],
+                TextButton(onPressed: (){
+                  _node.unfocus();
+                  add=_controller.text;
+                  _getHttp();
+                }, child: const Text('查询')),
+              ],
+            ),
           ),
           weatherWidget(),
         ],

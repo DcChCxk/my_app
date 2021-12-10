@@ -14,6 +14,9 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
 
+  // 用于路由返回监听
+  static final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

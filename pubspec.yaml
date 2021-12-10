@@ -35,6 +35,12 @@ dev_dependencies:
   flutter_easyloading: ^3.0.3
   #组件加载动画
   flutter_staggered_animations: ^1.0.0
+  # 下拉/上拉/刷新
+  flutter_easyrefresh: ^2.2.1
+  # 状态管理  https://pub.flutter-io.cn/packages/provider
+  provider: ^5.0.0
+  # 前端标签
+  flutter_html: ^2.1.5
 
 flutter:
 
@@ -42,3 +48,5 @@ flutter:
   assets:
     - assets/guide/
     - assets/main/
+    - assets/useful/
+    - assets/my/

@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/base/net/api.dart';
-import 'package:my_app/base/res/dimens.dart';
 import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
-import 'package:my_app/bean/phone_local_bean_entity.dart';
+import 'package:my_app/bean/rubbish_classify_bean_entity.dart';
 import 'package:my_app/ui/get_word.dart';
-import 'package:dio/dio.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
-///手机归属地查询
-class PhoneQueryPage extends StatefulWidget{
+///垃圾分类
+class RubbishClassifyPage extends StatefulWidget{
 
   @override
-  State<StatefulWidget> createState() => PhoneQueryPageState();
+  State<StatefulWidget> createState() => RubbishClassifyPageState();
 
 }
 
-class PhoneQueryPageState extends State<PhoneQueryPage>{
+class RubbishClassifyPageState extends State<RubbishClassifyPage>{
 
   TextEditingController _controller = new TextEditingController();
   FocusNode _node = new FocusNode();
 
-  String phone;
+  String name;
 
-  PhoneLocalBeanData phoneBean;
+  RubbishClassifyBeanData rubbishBean;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: MyAppBar(
-        title: '归属地查询',
+        title: '垃圾分类查询',
         context: context,
       ),
       body:bodyWidget(),
@@ -42,7 +42,7 @@ class PhoneQueryPageState extends State<PhoneQueryPage>{
         children: [
           SizedBox(
             width: MediaQuery.of(context).size.width,
-            child: Image.asset('assets/main/phone_query.jpg'),
+            child: Image.asset('assets/main/rubbish_classify.jpg'),
           ),
           const SizedBox(height: 20,),
           Container(
@@ -61,7 +61,7 @@ class PhoneQueryPageState extends State<PhoneQueryPage>{
                     controller: _controller,
                     focusNode: _node,
                     decoration: const InputDecoration(
-                      labelText: '点击这里就可以查了：',
+                      labelText: '这是什么种类的垃圾：',
                       labelStyle: TextStyle(
                           fontSize: 15.0,
                           color: Color.fromARGB(255, 93, 93, 93)),
@@ -70,9 +70,9 @@ class PhoneQueryPageState extends State<PhoneQueryPage>{
                   ),
                 ),
                 TextButton(onPressed: (){
-                  phone = _controller.text;
+                  name = _controller.text;
                   _node.unfocus();
-                  _phoneLocal();
+                  _rubbishClassify();
                 }, child: const Text('查询')),
               ],
             ),
@@ -85,26 +85,44 @@ class PhoneQueryPageState extends State<PhoneQueryPage>{
   }
 
   Widget resultWidget(){
-    if(phoneBean==null){
+    if(rubbishBean==null){
       return Container();
     }
-    return phoneBean.carrier==''?
-    Text('请输入正确的号码！',style: MyStyle.text_style_14_255_118,):
-    Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
       children: [
-        Text('这个号码的归属地是: ',style: MyStyle.text_style_14_153,),
-        Text(phoneBean.carrier,style: MyStyle.text_style_14_51_bold,)
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('${rubbishBean.aim.goodsName}是： ',style: MyStyle.text_style_14_153,),
+            Text(rubbishBean.aim.goodsType,style: MyStyle.text_style_14_51_bold,)
+          ],
+        ),
+        const Text('相关垃圾：'),
+        ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: rubbishBean.recommendList.length,
+          itemBuilder: (context,index){
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('${rubbishBean.recommendList[index].goodsName}是： ',style: MyStyle.text_style_14_153,),
+                Text(rubbishBean.recommendList[index].goodsType,style: MyStyle.text_style_14_51_bold,)
+              ],
+            );
+          })
       ],
     );
   }
 
-  Future _phoneLocal() async{
-    Api.getInstance(context, false).phoneLocal(phone).then((value) => {
+  Future _rubbishClassify() async{
+    Api.getInstance(context, false).rubbishClassify(name).then((value) => {
       if(value.code==1){
         setState((){
-          phoneBean=value.data;
+          rubbishBean=value.data;
         })
+      }else{
+        Fluttertoast.showToast(msg: value.msg)
       }
     });
   }

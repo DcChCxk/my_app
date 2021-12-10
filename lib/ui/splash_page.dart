@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/base/utils/route_util.dart';
 
+import 'login/login_page.dart';
+
 class SplashPage extends StatefulWidget {
   const SplashPage({Key key}) : super(key: key);
 
@@ -84,7 +86,7 @@ class SplashPageState extends State<SplashPage> {
   }
 
   void _goMain() {
-    RouteUtil.goLogin(context);
+    RouteUtil.pushReplacement(context, LoginPage());
   }
 
 

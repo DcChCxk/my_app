@@ -8,6 +8,7 @@ import 'package:my_app/bean/ip_bean_entity.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_app/ui/get_word.dart';
 
+///自己的ip地址查询
 class SelfIpPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() =>SelfIpPageState();

@@ -5,6 +5,8 @@ import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/joker_list_bean_entity.dart';
 
+
+///笑话列表
 class JokerListPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => JokerListPageState();
