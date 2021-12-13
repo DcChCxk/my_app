@@ -2,7 +2,7 @@ import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_app/base/custom/load_state_layout.dart';
 import 'package:my_app/base/net/api.dart';
-import 'package:my_app/base/page/BaseViewModel.dart';
+import 'package:my_app/base/page/base_view_model.dart';
 import 'package:my_app/base/res/constant.dart';
 import 'package:my_app/bean/news_list_bean_entity.dart';
 

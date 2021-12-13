@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/widgets.dart';
 import 'package:my_app/base/custom/load_state_layout.dart';
 

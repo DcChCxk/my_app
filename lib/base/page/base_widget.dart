@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../main.dart';
 
 abstract class BaseWidget extends StatefulWidget {

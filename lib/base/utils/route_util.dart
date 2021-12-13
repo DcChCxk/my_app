@@ -12,7 +12,7 @@ class RouteUtil {
   }
 
   static void goLogin(BuildContext context){
-    pushNamed(context, Constant.routeLogin);
+    pushReplacement(context, Constant.routeLogin);
   }
 
   ///通过路由名称跳转

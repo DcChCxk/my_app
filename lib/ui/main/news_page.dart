@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_app/base/net/api.dart';
 import 'package:my_app/base/res/dimens.dart';
-import 'package:my_app/base/utils/TabSizeIndicator.dart';
+import 'package:my_app/base/utils/tab_size_indicator.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/news_classify_bean_entity.dart';
 import 'package:my_app/ui/main/news_list_item_page.dart';
