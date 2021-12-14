@@ -6,6 +6,7 @@ import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/daily_words_bean_entity.dart';
 import 'package:my_app/bean/ip_bean_entity.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:my_app/generated/l10n.dart';
 import 'package:my_app/ui/get_word.dart';
 
 ///自己的ip地址查询
@@ -29,9 +30,9 @@ class SelfIpPageState extends State<SelfIpPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: 'IP查询',
-        context: context,
+      appBar: AppBar(
+        title: Text(S.of(context).ip),
+        // context: context,
       ),
       body: bodyWidget(),
       bottomNavigationBar: GetWord(),

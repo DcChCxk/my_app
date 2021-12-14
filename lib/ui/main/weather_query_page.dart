@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/base/res/dimens.dart';
 import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
+import 'package:my_app/generated/l10n.dart';
 import 'package:my_app/ui/get_word.dart';
 import 'package:dio/dio.dart';
 
@@ -25,9 +26,9 @@ class WeatherQueryPageState extends State<WeatherQueryPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: '天气查询',
-        context: context,
+      appBar: AppBar(
+        title: Text(S.of(context).weather_query),
+        // context: context,
       ),
       body:bodyWidget(),
       bottomNavigationBar: GetWord(),
@@ -57,8 +58,8 @@ class WeatherQueryPageState extends State<WeatherQueryPage>{
                   child: TextFormField(
                     controller: _controller,
                     focusNode: _node,
-                    decoration: const InputDecoration(
-                      labelText: '请输入要查询的城市',
+                    decoration: InputDecoration(
+                      labelText: S.of(context).city_name,
                       labelStyle: TextStyle(
                           fontSize: 15.0,
                           color: Color.fromARGB(255, 93, 93, 93)),
@@ -70,7 +71,7 @@ class WeatherQueryPageState extends State<WeatherQueryPage>{
                   _node.unfocus();
                   add=_controller.text;
                   _getHttp();
-                }, child: const Text('查询')),
+                }, child:Text(S.of(context).query)),
               ],
             ),
           ),

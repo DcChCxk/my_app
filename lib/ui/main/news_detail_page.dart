@@ -4,6 +4,7 @@ import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/news_detail_bean_entity.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:my_app/generated/l10n.dart';
 
 ///新闻详情页面
 class NewsDetailPage extends StatefulWidget{
@@ -27,9 +28,9 @@ class NewsDetailPageState extends State<NewsDetailPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: '新闻详情',
-        context: context,
+      appBar: AppBar(
+        title: Text(S.current.detail),
+        // context: context,
       ),
       body: bodyWidget(),
     );

@@ -4,6 +4,7 @@ import 'package:my_app/base/res/dimens.dart';
 import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/dictionary_bean_entity.dart';
+import 'package:my_app/generated/l10n.dart';
 import 'package:my_app/ui/get_word.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -28,9 +29,9 @@ class DictionaryPageState extends State<DictionaryPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        title: '汉语字典',
-        context: context,
+      appBar: AppBar(
+        title: Text(S.of(context).dictionary),
+        // context: context,
       ),
       body:bodyWidget(),
       bottomNavigationBar: GetWord(),
@@ -62,8 +63,8 @@ class DictionaryPageState extends State<DictionaryPage>{
                   child: TextFormField(
                     controller: _controller,
                     focusNode: _node,
-                    decoration: const InputDecoration(
-                      labelText: '要查询的汉字：',
+                    decoration: InputDecoration(
+                      labelText: S.of(context).dictionary_query,
                       labelStyle: TextStyle(
                           fontSize: 15.0,
                           color: Color.fromARGB(255, 93, 93, 93)),
@@ -75,7 +76,7 @@ class DictionaryPageState extends State<DictionaryPage>{
                   content = _controller.text;
                   _node.unfocus();
                   _dictionaryQuery();
-                }, child: const Text('查询')),
+                }, child:Text(S.of(context).query)),
               ],
             ),
           ),

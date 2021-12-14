@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/base/res/dimens.dart';
 import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/route_util.dart';
+import 'package:my_app/generated/l10n.dart';
 import 'package:my_app/ui/main/dictionary_page.dart';
 import 'package:my_app/ui/main/history_today_page.dart';
 import 'package:my_app/ui/main/joker_list_page.dart';
@@ -23,7 +24,7 @@ class MainPageState extends State<MainPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('hello'),
+        title: Text(S.of(context).App_Title),
         leading: Container(),
       ),
       body: bodyWidget(),
@@ -34,35 +35,36 @@ class MainPageState extends State<MainPage>{
     return SingleChildScrollView(
       child: Column(
         children: [
+          SizedBox(height: 15,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              inkWidget('assets/main/happy.jpg', '开心一下',JokerListPage()),
-              inkWidget('assets/main/news.jpg', '每日新闻',NewsPage()),
+              inkWidget('assets/main/happy.jpg', S.of(context).have_fun,JokerListPage()),
+              inkWidget('assets/main/news.jpg', S.of(context).daily_news,NewsPage()),
             ],
           ),
           const SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              inkWidget('assets/main/once.jpg', '历史上的今天',HistoryTodayPage()),
-              inkWidget('assets/main/weather.jpg', '天气查询',WeatherQueryPage()),
+              inkWidget('assets/main/once.jpg', S.of(context).history_today,HistoryTodayPage()),
+              inkWidget('assets/main/weather.jpg', S.of(context).weather_query,WeatherQueryPage()),
             ],
           ),
           const SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              inkWidget('assets/main/rubbish.jpg', '垃圾分类',RubbishClassifyPage()),
-              inkWidget('assets/main/dictionary.jpg', '汉语字典',DictionaryPage()),
+              inkWidget('assets/main/rubbish.jpg', S.of(context).rubbish_classify,RubbishClassifyPage()),
+              inkWidget('assets/main/dictionary.jpg', S.of(context).dictionary,DictionaryPage()),
             ],
           ),
           const SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              inkWidget('assets/main/phone.jpg', '手机归属地',PhoneQueryPage()),
-              inkWidget('assets/main/my_ip.jpg', '看看自己的IP',SelfIpPage()),
+              inkWidget('assets/main/phone.jpg', S.current.phone_local,PhoneQueryPage()),
+              inkWidget('assets/main/my_ip.jpg', S.of(context).ip,SelfIpPage()),
             ],
           ),
           const SizedBox(height: 20,),

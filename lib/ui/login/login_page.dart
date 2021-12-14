@@ -3,6 +3,7 @@ import 'package:my_app/base/res/dimens.dart';
 import 'package:my_app/base/utils/route_util.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:my_app/base/utils/will_pop_util.dart';
+import 'package:my_app/generated/l10n.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -50,8 +51,8 @@ class LoginPageState extends State<LoginPage> {
                                     color: Color.fromARGB(255, 240, 240, 240),
                                     width: 1.0))),
                         child: TextFormField(
-                          decoration: const InputDecoration(
-                            labelText: '请输入用户名',
+                          decoration: InputDecoration(
+                            labelText: S.of(context).username,
                             labelStyle: TextStyle(
                                 fontSize: 15.0,
                                 color: Color.fromARGB(255, 93, 93, 93)),
@@ -70,7 +71,7 @@ class LoginPageState extends State<LoginPage> {
                                     width: 1.0))),
                         child: TextFormField(
                           decoration: InputDecoration(
-                              labelText: '请输入密码',
+                              labelText: S.of(context).password,
                               labelStyle: const TextStyle(
                                   fontSize: 15.0,
                                   color: Color.fromARGB(255, 93, 93, 93)),
@@ -114,7 +115,7 @@ class LoginPageState extends State<LoginPage> {
                                       bottom: MyDimens.getHeight(13)),
                                   child: Center(
                                     child: Text(
-                                      '登录',
+                                      S.of(context).login,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: MyDimens.getSp(14)),
@@ -135,10 +136,10 @@ class LoginPageState extends State<LoginPage> {
                             Ink(
                               child: InkWell(
                                 onTap: () {
-                                  Fluttertoast.showToast(msg: '账号是"happy"');
+                                  Fluttertoast.showToast(msg: S.of(context).username+": happy");
                                 },
-                                child: const Text(
-                                  '注册账号',
+                                child:Text(
+                                  S.of(context).register,
                                   style: TextStyle(
                                       fontSize: 13.0,
                                       color: Color.fromARGB(255, 53, 53, 53)),
@@ -148,10 +149,10 @@ class LoginPageState extends State<LoginPage> {
                             Ink(
                               child: InkWell(
                                 onTap: () {
-                                  Fluttertoast.showToast(msg: '密码是"123456"');
+                                  Fluttertoast.showToast(msg: S.of(context).password+": 123456");
                                 },
-                                child: const Text(
-                                  '忘记密码',
+                                child:Text(
+                                  S.of(context).forget_password,
                                   style: TextStyle(
                                       fontSize: 13.0,
                                       color: Color.fromARGB(255, 53, 53, 53)),

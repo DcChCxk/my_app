@@ -5,6 +5,7 @@ import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/base/utils/route_util.dart';
 import 'package:my_app/bean/history_today_list_bean_entity.dart';
+import 'package:my_app/generated/l10n.dart';
 import 'package:my_app/ui/main/history_detail_page.dart';
 
 
@@ -26,9 +27,9 @@ class HistoryTodayPageState extends State<HistoryTodayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: '历史上的今天',
-        context: context,
+      appBar: AppBar(
+        title: Text(S.of(context).history_today),
+        // context: context,
       ),
       body: bodyWidget(),
     );

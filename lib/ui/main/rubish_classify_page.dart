@@ -3,6 +3,7 @@ import 'package:my_app/base/net/api.dart';
 import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/rubbish_classify_bean_entity.dart';
+import 'package:my_app/generated/l10n.dart';
 import 'package:my_app/ui/get_word.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -27,9 +28,9 @@ class RubbishClassifyPageState extends State<RubbishClassifyPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MyAppBar(
-        title: '垃圾分类查询',
-        context: context,
+      appBar: AppBar(
+        title: Text(S.of(context).rubbish_classify),
+        // context: context,
       ),
       body:bodyWidget(),
       bottomNavigationBar: GetWord(),
@@ -60,8 +61,8 @@ class RubbishClassifyPageState extends State<RubbishClassifyPage>{
                   child: TextFormField(
                     controller: _controller,
                     focusNode: _node,
-                    decoration: const InputDecoration(
-                      labelText: '这是什么种类的垃圾：',
+                    decoration: InputDecoration(
+                      labelText: S.of(context).rubbish_query,
                       labelStyle: TextStyle(
                           fontSize: 15.0,
                           color: Color.fromARGB(255, 93, 93, 93)),
@@ -73,7 +74,7 @@ class RubbishClassifyPageState extends State<RubbishClassifyPage>{
                   name = _controller.text;
                   _node.unfocus();
                   _rubbishClassify();
-                }, child: const Text('查询')),
+                }, child: Text(S.of(context).query)),
               ],
             ),
           ),
@@ -93,11 +94,11 @@ class RubbishClassifyPageState extends State<RubbishClassifyPage>{
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('${rubbishBean.aim.goodsName}是： ',style: MyStyle.text_style_14_153,),
+            Text(rubbishBean.aim.goodsName+S.of(context).is_this+": ",style: MyStyle.text_style_14_153,),
             Text(rubbishBean.aim.goodsType,style: MyStyle.text_style_14_51_bold,)
           ],
         ),
-        const Text('相关垃圾：'),
+        Text(S.of(context).related_search),
         ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -106,7 +107,7 @@ class RubbishClassifyPageState extends State<RubbishClassifyPage>{
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('${rubbishBean.recommendList[index].goodsName}是： ',style: MyStyle.text_style_14_153,),
+                Text(rubbishBean.recommendList[index].goodsName+S.of(context).is_this+": ",style: MyStyle.text_style_14_153,),
                 Text(rubbishBean.recommendList[index].goodsType,style: MyStyle.text_style_14_51_bold,)
               ],
             );

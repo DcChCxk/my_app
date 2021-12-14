@@ -6,6 +6,7 @@ import 'package:my_app/base/res/dimens.dart';
 import 'package:my_app/base/utils/tab_size_indicator.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/news_classify_bean_entity.dart';
+import 'package:my_app/generated/l10n.dart';
 import 'package:my_app/ui/main/news_list_item_page.dart';
 
 
@@ -18,7 +19,7 @@ class NewsPage extends StatefulWidget {
 
 class NewsPageState extends State<NewsPage> with TickerProviderStateMixin {
   TextStyle _textStyleTarBarText = TextStyle(fontSize: MyDimens.getSp(17));
-  String title = '新闻';
+  String title = S.current.news;
   List<NewsClassifyBeanData> allClassificationList = [];
   TabController _tabController;
   List list=[];
@@ -31,9 +32,9 @@ class NewsPageState extends State<NewsPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: title,
-        context: context,
+      appBar: AppBar(
+        title: Text(title),
+        // context: context,
       ),
       body: _body(),
     );

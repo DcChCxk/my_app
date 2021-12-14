@@ -3,6 +3,7 @@ import 'package:my_app/base/res/dimens.dart';
 import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/history_today_list_bean_entity.dart';
+import 'package:my_app/generated/l10n.dart';
 
 ///历史上的今天详情
 class HistoryDetailPage extends StatefulWidget {
@@ -16,9 +17,9 @@ class HistoryDetailPageState extends State<HistoryDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: '事件详情',
-        context: context,
+      appBar: AppBar(
+        title: Text(S.of(context).detail),
+        // context: context,
       ),
       body: bodyWidget(),
     );

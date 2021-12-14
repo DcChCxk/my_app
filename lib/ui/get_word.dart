@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:my_app/base/net/api.dart';
 import 'package:my_app/base/res/dimens.dart';
+import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/bean/daily_words_bean_entity.dart';
 
 class GetWord extends StatefulWidget{
@@ -27,7 +28,7 @@ class GetWordState extends State<GetWord>{
     }
     return Container(
       padding: EdgeInsets.only(left: MyDimens.getWidth(16),right: MyDimens.getWidth(16),bottom: MyDimens.getHeight(20),top: MyDimens.getHeight(20)),
-      child: Text(word.content),
+      child: Text(word.content,style: MyStyle.text_style_14_153,),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/base/utils/will_pop_util.dart';
+import 'package:my_app/generated/l10n.dart';
 
 import 'main/main_page.dart';
 import 'my/my_page.dart';
@@ -15,17 +16,17 @@ class HomePage extends StatefulWidget{
 
 class HomePageState extends State<HomePage>{
   final List<BottomNavigationBarItem> _bottomItem = [
-    const BottomNavigationBarItem(
+    BottomNavigationBarItem(
       icon: Icon(Icons.list),
-      label:'首页'
+      label:S.current.home
     ),
-    const BottomNavigationBarItem(
+    BottomNavigationBarItem(
         icon: Icon(Icons.person),
-        label:'我的'
+        label:S.current.me
     ),
   ];
 
-  final List _tabs = [MainPage(),MyPage()];
+  List _tabs = [MainPage(),MyPage()];
 
 
   Widget currentPage;

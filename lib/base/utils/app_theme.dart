@@ -1,83 +1,69 @@
 import 'package:flutter/material.dart';
 
+
+Map materialColor = { // 主副颜色
+  'purple': {
+    "primaryColor": 0xFF7B1FA2,
+    "primaryColorLight": 0xFF9C27B0,
+  },
+  'pink': {
+    "primaryColor": 0xFFc2185b,
+    "primaryColorLight": 0xFFd81b60,
+  },
+  'yellow': {
+    "primaryColor": 0xFF00FF00,
+    "primaryColorLight": 0xFF00FF00,
+  },
+  'blue': {
+    "primaryColor": 0xFF1976D2,
+    "primaryColorLight": 0xFF2196F3,
+  },
+};
+
 class AppTheme {
-  AppTheme({ColoraccentColor}) {
-    _accentColor = _accentColor ?? Color(0xFF3366FF);
-  }
+  static Map mainColor = materialColor['blue'];   // 默认颜色
+  static getThemeData(String theme) {  // 获取theme方法： getThemeData();
+    mainColor = materialColor[theme];  // 设置主题颜色
+    ThemeData themData = ThemeData(
+      // scaffoldBackgroundColor: Colors.red, // 页面的背景颜色
 
-  Color _accentColor;
-
-  // Light theme
-  ThemeData get lightTheme => ThemeData(
-      primaryColor: Color(0xFFF7F8FA),
-      primaryColorLight: Colors.white,
-      primaryColorDark: Color(0xFF171E29),
-      dialogBackgroundColor: Colors.white,
-      backgroundColor: Colors.grey[100],
-      scaffoldBackgroundColor: Color(0xFFF7F8FA),
-      appBarTheme: AppBarTheme(
-        centerTitle: true,
-        color: Color(0xFFF7F8FA),
-        titleTextStyle: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          color: Color(0xFF171E29),
-        ),
-        elevation: 0,
-      ),
-      textTheme: TextTheme(
-        button: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-        headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-        headline3: TextStyle(
-            fontSize: 25.0, fontWeight: FontWeight.bold, color: Colors.black),
-        headline4: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-        headline5: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-        headline6: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
-        subtitle1: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.normal,
-          color: Color(0xff7f7f7f),
-        ),
-        subtitle2: TextStyle(
-          fontSize: 14.0,
-          color: Color(0xFF3366FF),
-        ),
-        bodyText1: TextStyle(
-          fontSize: 14.0,
-          fontWeight: FontWeight.normal,
-          color: Color(0xff171e29),
-        ),
-        bodyText2: TextStyle(
-          fontSize: 12.0,
-          fontWeight: FontWeight.normal,
-          color: Color(0xFF7F7F7F),
-        ),
-        caption: TextStyle(
-          fontSize: 12.0,
-          fontWeight: FontWeight.normal,
-          color: Colors.black,
-        ),
-      ),
-      tabBarTheme: TabBarTheme(
-        labelColor: Colors.black,
-        unselectedLabelColor: Colors.grey[400],
-      ),
-      textSelectionTheme: TextSelectionThemeData(
-          cursorColor: _accentColor,
-          selectionHandleColor: _accentColor,
-          selectionColor: _accentColor.withOpacity(0.6)),
+      primaryColor: Color(mainColor["primaryColor"]), // 主颜色
+      primaryColorLight: Color(mainColor["primaryColorLight"]),
+      // 按钮颜色
       buttonTheme: ButtonThemeData(
-        height: 32,
-        hoverColor: Colors.grey[100].withAlpha(70),
-        splashColor: Colors.grey[100].withAlpha(70),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        textTheme: ButtonTextTheme.normal,
+        buttonColor: Color(mainColor["primaryColor"]),
       ),
-      dividerTheme: DividerThemeData(color: Color(0xFFDADADA)),
-      textButtonTheme: TextButtonThemeData(
-          style: ButtonStyle(
-        textStyle: MaterialStateProperty.all(TextStyle(fontSize: 16)),
-      )),
-      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: _accentColor));
 
-  // Dark theme
-  ThemeData get darkTheme => ThemeData.dark().copyWith();
+      // appbar样式
+      appBarTheme: AppBarTheme(
+        elevation: 0.0,
+        color: Color(mainColor["primaryColor"]),
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.white),
+        titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20.0,
+        ),
+      ),
+
+      // 图标样式
+      iconTheme: IconThemeData(
+        color: Color(mainColor["primaryColorLight"]),
+      ),
+
+      // 用于自定义对话框形状的主题。
+      dialogTheme: DialogTheme(
+        backgroundColor: Colors.white,
+        titleTextStyle: TextStyle(
+          fontSize: 18.0,
+          color: Colors.black87,
+        ),
+      ), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color(mainColor["primaryColor"])),
+    );
+    return themData;
+  }
 }

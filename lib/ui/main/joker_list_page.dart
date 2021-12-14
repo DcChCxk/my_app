@@ -4,6 +4,7 @@ import 'package:my_app/base/res/dimens.dart';
 import 'package:my_app/base/res/my_style.dart';
 import 'package:my_app/base/utils/my_app_bar.dart';
 import 'package:my_app/bean/joker_list_bean_entity.dart';
+import 'package:my_app/generated/l10n.dart';
 
 
 ///笑话列表
@@ -26,9 +27,9 @@ class JokerListPageState extends State<JokerListPage>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MyAppBar(
-        title: '开心一下',
-        context: context,
+      appBar: AppBar(
+        title: Text(S.of(context).have_fun),
+        // context: context,
       ),
       body: bodyWidget(),
     );

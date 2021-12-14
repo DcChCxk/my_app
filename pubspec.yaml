@@ -41,6 +41,12 @@ dev_dependencies:
   provider: ^5.0.0
   # 前端标签
   flutter_html: ^2.1.5
+  # 国际化
+  intl: ^0.17.0
+  flutter_localizations:
+    sdk: flutter
+  #持久化
+  shared_preferences: ^2.0.11
 
 flutter:
 
@@ -50,3 +56,6 @@ flutter:
     - assets/main/
     - assets/useful/
     - assets/my/
+
+flutter_intl:
+  enabled: true
