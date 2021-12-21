@@ -454,6 +454,16 @@ class S {
       args: [],
     );
   }
+
+  /// `部分改动将在重启后生效`
+  String get restart {
+    return Intl.message(
+      '部分改动将在重启后生效',
+      name: 'restart',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

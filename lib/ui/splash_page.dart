@@ -2,8 +2,9 @@ import 'package:flustars/flustars.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/base/utils/route_util.dart';
+import 'package:permission_handler/permission_handler.dart';
 
-import 'login/login_page.dart';
+import 'home_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key key}) : super(key: key);
@@ -26,7 +27,7 @@ class SplashPageState extends State<SplashPage> {
         _count = _tick.toInt();
       });
       if (_tick == 0){
-        _goMain();
+        requestPermission();
       }
     });
     _timerUtil.startCountDown();
@@ -55,7 +56,7 @@ class SplashPageState extends State<SplashPage> {
             margin: const EdgeInsets.all(20),
             child: InkWell(
               onTap: () {
-                _goMain();
+                requestPermission();
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -86,9 +87,26 @@ class SplashPageState extends State<SplashPage> {
   }
 
   void _goMain() {
-    RouteUtil.pushReplacement(context, LoginPage());
+    RouteUtil.pushReplacement(context,HomePage(0));
   }
 
-
-
+  //动态申请权限
+  void requestPermission() async {
+    var status = await Permission.storage.status;
+    if (status.isDenied) {
+      //权限未获得,开始请求权限
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.storage,
+      ].request();
+      if (statuses[Permission.storage] == PermissionStatus.granted) {
+        //存储权限获取
+        _goMain();
+      } else if (statuses[Permission.storage] == PermissionStatus.denied) {
+        //存储权限被拒绝
+      }
+    } else {
+      //权限已获得
+      _goMain();
+    }
+  }
 }

@@ -40,5 +40,6 @@
   "blue": "blue",
   "purple": "purple",
   "pink": "pink",
-  "yellow": "yellow"
+  "yellow": "yellow",
+  "restart": "部分改动将在重启后生效"
 }

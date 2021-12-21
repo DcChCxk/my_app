@@ -1,4 +1,8 @@
+import 'dart:typed_data';
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:my_app/base/utils/will_pop_util.dart';
 import 'package:my_app/generated/l10n.dart';
 
@@ -18,7 +22,7 @@ class HomePageState extends State<HomePage>{
   final List<BottomNavigationBarItem> _bottomItem = [
     BottomNavigationBarItem(
       icon: Icon(Icons.list),
-      label:S.current.home
+      label:S.current.home,
     ),
     BottomNavigationBarItem(
         icon: Icon(Icons.person),

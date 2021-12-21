@@ -70,12 +70,12 @@ class HistoryTodayPageState extends State<HistoryTodayPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     SizedBox(
-                      width:MediaQuery.of(context).size.width*4/5-60,
+                      width:MediaQuery.of(context).size.width*4/5-80,
                       child: Text(history[index].title,overflow: TextOverflow.ellipsis,maxLines: 1,
                         style: TextStyle(color:Colors.black,fontSize: MyDimens.getSp(16),fontWeight: FontWeight.w500),),
                     ),
                     SizedBox(
-                      width:MediaQuery.of(context).size.width/5+10,
+                      width:MediaQuery.of(context).size.width/5+30,
                       child: Text(history[index].year +" / " +
                           history[index].month.toString() + " / " +
                           history[index].day.toString()),

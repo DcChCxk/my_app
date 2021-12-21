@@ -54,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "query" : MessageLookupByLibrary.simpleMessage("查询"),
     "register" : MessageLookupByLibrary.simpleMessage("注册"),
     "related_search" : MessageLookupByLibrary.simpleMessage("相关搜索 :"),
+    "restart" : MessageLookupByLibrary.simpleMessage("Some changes take effect after restart"),
     "right_phone" : MessageLookupByLibrary.simpleMessage("请输入正确的手机号 ！"),
     "rubbish_classify" : MessageLookupByLibrary.simpleMessage("垃圾分类"),
     "rubbish_query" : MessageLookupByLibrary.simpleMessage("这是什么种类的垃圾 :"),

@@ -10,7 +10,7 @@ class WillPopUtils{
   ///返回键
   static  willPop(context) async{
     // 点击返回键的操作
-    if(lastPopTime == null || DateTime.now().difference(lastPopTime) > Duration(seconds: 2)){
+    if(lastPopTime == null || DateTime.now().difference(lastPopTime) > const Duration(seconds: 2)){
       lastPopTime = DateTime.now();
       Fluttertoast.showToast(msg: '再按一次退出');
     }else{

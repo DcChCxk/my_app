@@ -54,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "query" : MessageLookupByLibrary.simpleMessage("Query"),
     "register" : MessageLookupByLibrary.simpleMessage("Register"),
     "related_search" : MessageLookupByLibrary.simpleMessage("Related search :"),
+    "restart" : MessageLookupByLibrary.simpleMessage("部分改动将在重启后生效"),
     "right_phone" : MessageLookupByLibrary.simpleMessage("Please enter the correct mobile phone number ！"),
     "rubbish_classify" : MessageLookupByLibrary.simpleMessage("Rubbish"),
     "rubbish_query" : MessageLookupByLibrary.simpleMessage("Rubbish Classify :"),

@@ -11,8 +11,12 @@ import 'ui/login/login_page.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:sp_util/sp_util.dart';
+import 'package:fluwx/fluwx.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SpUtil.getInstance();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => CurrentLocale()), //此是语言状态注册
@@ -21,7 +25,6 @@ void main() {
     child: MyApp(),
   ));
 }
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
@@ -44,7 +47,7 @@ class MyApp extends StatelessWidget {
             Constant.routeLogin: (ctx) => LoginPage()
           },
           locale: currentLocale.value,
-          localizationsDelegates: [
+          localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
@@ -54,12 +57,13 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.getThemeData(themeModel.value),
           // 隐藏DEBUG
           debugShowCheckedModeBanner: false,
-          home: SplashPage(),
           //引导页,
+          home: const SplashPage(),
           builder: (context, child) {
             child = easyLoad(context, child);
             return child;
           });
     });
   }
+
 }

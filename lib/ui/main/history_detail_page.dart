@@ -39,7 +39,7 @@ class HistoryDetailPageState extends State<HistoryDetailPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(
-                width: MediaQuery.of(context).size.width * 4 / 5 - 60,
+                width: MediaQuery.of(context).size.width * 4 / 5 - 80,
                 child: Text(
                   widget.bean.title,
                   overflow: TextOverflow.ellipsis,
@@ -48,7 +48,7 @@ class HistoryDetailPageState extends State<HistoryDetailPage> {
                 ),
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width / 5+10,
+                width: MediaQuery.of(context).size.width / 5+30,
                 child: Text(widget.bean.year +
                     " / " +
                     widget.bean.month.toString() +

@@ -45,8 +45,14 @@ dev_dependencies:
   intl: ^0.17.0
   flutter_localizations:
     sdk: flutter
-  #持久化
-  shared_preferences: ^2.0.11
+  # 持久化
+  sp_util: ^2.0.3
+  # 申请权限
+  permission_handler: ^8.3.0
+  #跳转网页，拨打电话等功能
+  url_launcher: ^6.0.17
+  # 微信
+  fluwx: ^3.6.1+4
 
 flutter:
 
